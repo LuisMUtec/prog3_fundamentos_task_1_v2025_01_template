@@ -1,0 +1,33 @@
+limit_submissions: -1
+required_files: 
+  - vector_3d.h
+
+  - polynomial.h
+
+  - point.h
+
+  - logger.h
+
+  - system_log.h
+
+  - product.h
+
+  - fraction.h
+
+  - bag.h
+
+  - vector_3d.cpp
+
+  - polynomial.cpp
+
+  - point.cpp
+
+  - logger.cpp
+
+  - system_log.cpp
+
+  - product.cpp
+
+  - fraction.cpp
+
+  - bag.cpp

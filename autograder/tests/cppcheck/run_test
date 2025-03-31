@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#  execute the test -- you would most likely execute on submitted file
+#  for example: cppcheck ../student_file.h <options>
+
+# src code references
+# shellcheck disable=SC2016
+source='
+  cppcheck.cpp
+  vector_3d.cpp
+  polynomial.cpp
+  point.cpp
+  logger.cpp
+  system_log.cpp
+  product.cpp
+  fraction.cpp
+  bag.cpp
+  '
+
+cppcheck "${source}" -x c++ --enable=all --verbose --error-exitcode=1 --suppressions-list=suppressions.txt -I ../..

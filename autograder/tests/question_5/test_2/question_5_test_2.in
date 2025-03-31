@@ -1,0 +1,5 @@
+#input
+#output
+    task1:start,task1:stop
+    task2:start,task2:stop
+#endtest
