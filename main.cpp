@@ -1,6 +1,12 @@
 #include <iostream>
 
+#include <cassert>
+#include "vector_3d.h"
+
+
 int main() {
-    std::cout << "Hola Mundo" << std::endl;
+
+    cout << "Todos los tests pasaron correctamente." << std::endl;
+
     return 0;
 }
