@@ -17,7 +17,7 @@ namespace geometry {
     }
 
     std :: ostream& operator<<(std :: ostream& os, const point& rhs) {
-        os << "(" << rhs.x << ", " << rhs.y << ")";
+        os << "[" << rhs.x << ", " << rhs.y << "]";
         return os;
     }
 

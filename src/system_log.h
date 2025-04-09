@@ -5,29 +5,37 @@
 #ifndef PROG3_FUNDAMENTOS_TASK_1_V2025_01_SYSTEM_LOG_H
 #define PROG3_FUNDAMENTOS_TASK_1_V2025_01_SYSTEM_LOG_H
 
-#include <string>
 #include <chrono>
-#include <unordered_map>
-#include <mutex>
+#include <fstream>
+#include <string>
+#include <stdexcept>
 
-namespace performance :: monitoring {
+namespace performance {
+    namespace monitoring {
 
         class system_log {
         public:
-            explicit system_log(const std::string& output_path);
+            // Constructor que recibe la ruta del archivo de salida.
+            explicit system_log(const std::string& file_path);
 
-            void start(const std::string& task_name);
-            void stop(const std::string& task_name);
+            // Destructor.
+            ~system_log();
+
+            // Inicia la medición asociada a una tarea, registrando el mensaje de inicio.
+            void start(const std::string& message);
+
+            // Detiene la medición asociada a la tarea actual y registra el mensaje de fin.
+            void stop(const std::string& message);
 
         private:
-            std::string output_file_path;
-            std::unordered_map<std::string, std::chrono::high_resolution_clock::time_point> task_start_times;
-            std::mutex mutex_;
-
-            void log_to_file(const std::string& task_name, const std::string& event,
-                             const std::chrono::high_resolution_clock::time_point& time_point);
+            std::ofstream output_file;  // Archivo de salida para almacenar el log.
+            std::string current_start_message;  // Almacena el mensaje de inicio de la tarea.
+            std::chrono::time_point<std::chrono::high_resolution_clock> start_time;  // Instante en el que se inició la tarea.
+            bool is_task_running;  // Bandera para indicar si hay una tarea en ejecución.
         };
 
-}
+    } // namespace monitoring
+} // namespace performance
+
 
 #endif //PROG3_FUNDAMENTOS_TASK_1_V2025_01_SYSTEM_LOG_H

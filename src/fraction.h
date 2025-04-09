@@ -19,6 +19,9 @@ namespace math :: operations {
         friend fraction operator*(const fraction &f1, const fraction &f2);
         friend fraction operator/(const fraction &f1, const fraction &f2);
         friend bool operator==(const fraction &f1, const fraction &f2);
+        void simplificar();
+        int gcdnd() const;
+
     };
 
 
