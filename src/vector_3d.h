@@ -7,7 +7,6 @@
 
 #include<iostream>
 using namespace std;
-
 namespace geometry {
     class vector_3d {
         float x,y,z;
@@ -32,6 +31,11 @@ namespace geometry {
         vector_3d& operator=(const vector_3d& v2);
         friend float dot_product(const vector_3d& v1, const vector_3d& v2);
     };
+
+    inline float dot_product(const vector_3d& v1, const vector_3d& v2){
+        return v1.x*v2.x + v1.y*v2.y + v1.z*v2.z;
+    }
+
 }
 
 
